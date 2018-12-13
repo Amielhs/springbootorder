@@ -1,0 +1,108 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户列表</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/static/css/style.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/static/css/public.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/static/css/bootstrap.min.css}"/>
+    <script th:src="@{/static/js/jquery-1.8.3.min.js}"></script>
+    <script th:src="@{/static/js/common.js}"></script>
+    <script th:src="@{/static/js/userlist.js}"></script>
+    <script th:src="@{/static/calendar/WdatePicker.js}"></script>
+</head>
+<body>
+<div class="right">
+    <div class="location">
+        <strong>你现在所在的位置是:</strong>
+        <span>用户管理页面</span>
+    </div>
+    <div class="search">
+        <form method="get" action="#">
+            <input name="method" value="query" class="input-text" type="hidden">
+            <span>用户名：</span>
+            <input name="username" id="username" class="input-text" type="text">
+            <span>用户角色：</span>
+            <label>
+                <select name="userrole" id="userrole">
+                    <option value="0">--请选择--</option>
+                    <option value="1" }>系统管理员</option>
+                    <option value="2" }>经理</option>
+                    <option value="3" }>普通员工</option>
+                </select>
+            </label>
+            <input value="查 询" type="button" id="searchbutton">
+            <a th:href="@{/user/addUserView}">添加用户</a>
+        </form>
+    </div>
+    <!--用户-->
+    <table class="providerTable" cellpadding="0" cellspacing="0">
+        <tr class="firstTr" style="text-align: center">
+            <th width="10%">序号</th>
+            <th width="10%">用户编码</th>
+            <th width="20%">用户名称</th>
+            <th width="10%">性别</th>
+            <th width="10%">电话</th>
+            <th width="10%">用户角色</th>
+            <th width="30%">操作</th>
+        </tr>
+        <tr th:each="user,userStu:${userList}">
+            <td th:text="${userStu.index+1}"></td>
+            <td th:text="${user.usercode}"></td>
+            <td th:text="${user.username}"></td>
+            <td th:text="${user.gender}"></td>
+            <td th:text="${user.phone}"></td>
+            <td th:text="${user.roleName}"></td>
+            <td>'
+                <span><a class="viewUser" th:href="@{'/user/userView/'+${user.id}}"><img
+                        th:src="@{/static/images/read.png}" alt="查看" title="查看"/></a></span>
+                <span><a class="modifyUser" th:href="@{'/user/modifyUser/'+${user.id}}"><img
+                        th:src="@{/static/images/xiugai.png}" alt="修改" title="修改"/></a></span>
+                <span><a class="deleteUser" th:href="@{'/user/deleteUser/'+${user.id}}"><img
+                        th:src="@{/static/images/schu.png}" alt="删除" title="删除"/></a></span>
+            </td>
+        </tr>
+    </table>
+    <div>
+        <div th:switch="${pageNum}">
+            <p th:case="1">
+                <span>首页</span><span>上一页</span>
+                <a th:href="@{/user/page(pageNum=${pageNum}+1)}">下一页</a>
+                <a th:href="@{/user/page(pageNum=${pages})}">尾页</a>
+            </p>
+            <p th:case="${pageNum}">
+                <a th:href="@{/user/page?pageNum=1}">首页</a>
+                <a th:href="@{/user/page(pageNum=${pageNum}-1)}">上一页</a>
+                <a th:href="@{/user/page(pageNum=${pageNum}+1)}">下一页</a>
+                <a th:href="@{/user/page(pageNum=${pages})}">尾页</a>
+            </p>
+            <p th:case="${pages}">
+                <a th:href="@{/user/page?pageNum=1}">首页</a>
+                <a th:href="@{/user/page?${pageNum-1}}">上一页</a>
+                <span>下一页</span><span>尾页</span>
+            </p>
+        </div>
+
+        <!--    <a th:href="@{/user/page?pageNum=1}">上一页</a>
+            <a th:href="@{/user/page(pageNum=${totalPages})}">下一页</a>
+            <a th:href="@{/user/page(pageNum=${totalPages})}">尾页</a>-->
+    </div>
+    <!--<table>
+        <tr>
+            <td th:switch="${pageNum}">
+                <a th:href="@{/user/page?pageNum=0}">首页</a>
+            </td>
+            <td th:switch="${pageNum}">
+                <p th:case="1"><a th:href="@{/user/page?pageNum=1}" style="display: none">上一页</a></p>
+                <p th:case="*"><a th:href="@{/user/page(pageNum=${pageNum-1})}">上一页</a></p>
+            </td>
+            <td th:switch="${pageNum}">
+                <p th:case="${totalPages}"><a th:href="@{/user/page(pageNum=${totalPages})}">下一页</a></p>
+                <p th:case="*"><a th:href="@{/user/page(pageNum=${pageNum+1})}">下一页</a></p>
+            </td>
+            <td><a th:href="@{/user/page(pageNum=${totalPages})}">尾页</a></td>
+        </tr>
+    </table>-->
+</div>
+</body>
+</html>
+

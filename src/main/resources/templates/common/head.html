@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="head">
+    <meta charset="UTF-8">
+    <title>超市订单管理系统</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/static/css/style.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/static/css/public.css}"/>
+    <script th:src="@{/static/js/jquery-1.8.3.min.js}"></script>
+    <script th:src="@{/static/js/common.js}"></script>
+    <script th:src="@{/static/calendar/WdatePicker.js}"></script>
+</head>
+<body>
+<!--头部-->
+<header class="publicHeader" th:fragment="header">
+    <h1>超市订单管理系统</h1>
+    <div class="publicHeaderR">
+        <p><span>下午好！</span><span style="color: #fff21b" th:text="${session.user.username}"></span> , 欢迎你！</p>
+        <a th:href="@{/login/logout}">退出</a>
+    </div>
+</header>
+<!--主体内容-->
+<section class="publicMian">
+    <div class="left" th:fragment="left">
+        <h2 class="leftH2"><span class="span1"></span>功能列表 <span></span></h2>
+        <nav>
+            <ul class="list">
+                <li><a th:href="@{/bill/}" target="menuFrame">订单管理</a></li>
+                <li><a th:href="@{/provider/}" target="menuFrame">供应商管理</a></li>
+                <li><a th:href="@{/user/page?pageNum=1}" target="menuFrame">用户管理</a></li>
+                <li><a th:href="@{/user/pwdMod}" target="menuFrame">密码修改</a></li>
+                <li><a th:href="@{/login/logout}">退出系统</a></li>
+            </ul>
+        </nav>
+    </div>
+    <iframe id="menuFrame" name="menuFrame" src="" scrolling="no" frameborder="no" width="100%"
+            style="min-height:600px;">
+    </iframe>
+</section>
+<footer class="footer" th:fragment="footer">
+    <h2>版权归河北天泰软件科技有限公司</h2>
+</footer>
+</body>
+</html>

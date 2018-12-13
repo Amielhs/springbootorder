@@ -1,0 +1,40 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>用户密码更改</title>
+    <link type="text/css" rel="stylesheet" th:href="@{/static/css/style.css}"/>
+    <link type="text/css" rel="stylesheet" th:href="@{/static/css/public.css}"/>
+    <script th:src="@{/static/js/jquery.min.js}"></script>
+    <script th:src="@{/static/js/common.js}"></script>
+    <script th:src="@{/static/calendar/WdatePicker.js}"></script>
+    <script th:src="@{/static/js/pwdmodify.js}"></script>
+</head>
+
+<body>
+<div class="right">
+    <div class="location">
+        <strong>你现在所在的位置是:</strong>
+        <span>密码修改页面</span>
+    </div>
+    <div class="providerAdd">
+        <form id="userForm" name="userForm" method="post" th:action="@{/user/modify}">
+            <div>
+                <label for="oldPassword">旧密码：</label>
+                <input type="password" name="oldpassword" id="oldpassword" value=""/><span></span>
+            </div>
+            <div>
+                <label for="newPassword">新密码：</label>
+                <input type="password" name="newpassword" id="newpassword" value=""/><span></span>
+            </div>
+            <div>
+                <label for="rnewpassword">确认新密码：</label>
+                <input type="password" name="rnewpassword" id="rnewpassword" value=""/><span></span>
+            </div>
+            <div class="providerAddBtn">
+                <input type="button" name="save" id="save" value="保存" class="input-button"/>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>
