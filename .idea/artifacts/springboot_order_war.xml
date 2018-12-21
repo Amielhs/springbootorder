@@ -1,8 +1,8 @@
 <component name="ArtifactManager">
-  <artifact type="war" name="springbootorder:war">
+  <artifact type="war" name="springboot-order:war">
     <output-path>$PROJECT_DIR$/target</output-path>
     <root id="archive" name="springboot-order.war">
-      <element id="artifact" artifact-name="springbootorder:war exploded" />
+      <element id="artifact" artifact-name="springboot-order:war exploded" />
     </root>
   </artifact>
 </component>

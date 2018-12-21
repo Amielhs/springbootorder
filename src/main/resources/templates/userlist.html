@@ -52,12 +52,15 @@
             <td th:text="${user.gender}"></td>
             <td th:text="${user.phone}"></td>
             <td th:text="${user.roleName}"></td>
+            <!--<td id="useId" hidden="hidden" th:text="${user.id}"></td>-->
             <td>'
                 <span><a class="viewUser" th:href="@{'/user/userView/'+${user.id}}"><img
                         th:src="@{/static/images/read.png}" alt="查看" title="查看"/></a></span>
                 <span><a class="modifyUser" th:href="@{'/user/modifyUser/'+${user.id}}"><img
                         th:src="@{/static/images/xiugai.png}" alt="修改" title="修改"/></a></span>
-                <span><a class="deleteUser" th:href="@{'/user/deleteUser/'+${user.id}}"><img
+                <!--<span><a class="deleteUser" th:href="@{'/user/deleteUser/'+${user.id}}"><img
+                        th:src="@{/static/images/schu.png}" alt="删除" title="删除"/></a></span>-->
+                <span><a th:href="@{'javascript:confirmDel('+${user.id}+');'}"><img
                         th:src="@{/static/images/schu.png}" alt="删除" title="删除"/></a></span>
             </td>
         </tr>

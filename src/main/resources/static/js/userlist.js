@@ -73,48 +73,59 @@ $(function () {
         openYesOrNoDLG();
     });
 
-    /*$(".deleteUser").on("click",function(){
+    $(".deleteUser").on("click", function () {
         var obj = $(this);
-        if(confirm("你确定要删除用户【"+obj.attr("username")+"】吗？")){
+        if (confirm("你确定要删除用户【" + obj.attr("username") + "】吗？")) {
             $.ajax({
-                type:"GET",
-                url:path+"/jsp/user.do",
-                data:{method:"deluser",uid:obj.attr("userid")},
-                dataType:"json",
-                success:function(data){
-                    if(data.delResult == "true"){//删除成功：移除删除行
+                type: "GET",
+                url: path + "/jsp/user.do",
+                data: {method: "deluser", uid: obj.attr("userid")},
+                dataType: "json",
+                success: function (data) {
+                    if (data.delResult == "true") {//删除成功：移除删除行
                         alert("删除成功");
                         obj.parents("tr").remove();
-                    }else if(data.delResult == "false"){//删除失败
-                        alert("对不起，删除用户【"+obj.attr("username")+"】失败");
-                    }else if(data.delResult == "notexist"){
-                        alert("对不起，用户【"+obj.attr("username")+"】不存在");
+                    } else if (data.delResult == "false") {//删除失败
+                        alert("对不起，删除用户【" + obj.attr("username") + "】失败");
+                    } else if (data.delResult == "notexist") {
+                        alert("对不起，用户【" + obj.attr("username") + "】不存在");
                     }
                 },
-                error:function(data){
+                error: function (data) {
                     alert("对不起，删除失败");
                 }
             });
         }
-    });*/
+    });
 
 
-    $("#searchbutton").on("click",function () {
+    $("#searchbutton").on("click", function () {
         $.ajax({
             type: "post",//请求类型
             url: "/user/findUserByUserNameOrUserRole",//请求的url
-            data:{
-                username:$("#username").val(),
-                userrole:$("#userrole").val()
+            data: {
+                username: $("#username").val(),
+                userrole: $("#userrole").val()
             },//请求参数
             dataType: "json",//ajax接口（请求url）返回的数据类型
             success: function (data) {//data：返回数据（json对象）
                 console.log(data);
             },
             error: function (data) {//当访问时候，404，500 等非200的错误状态码
-              alert("数据访问失败");
+                alert("数据访问失败");
             }
         });
     })
+
+    < script
+    type = "text/javascript" >
+        function confirmDel(id) {
+            if (confirm("确定？")) {
+                window.location.href = '/user/deleteUser/' + id;
+            } else {
+                return;
+            }
+        }
+        < /script>
 
 });

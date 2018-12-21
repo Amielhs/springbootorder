@@ -6,11 +6,11 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="springbootorder" />
+        <module name="springboot-order" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="springbootorder" target="1.8" />
+      <module name="springboot-order" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
