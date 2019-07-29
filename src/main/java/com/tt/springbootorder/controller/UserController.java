@@ -1,21 +1,20 @@
 package com.tt.springbootorder.controller;
 
-        import com.github.pagehelper.PageHelper;
-        import com.tt.springbootorder.config.page.PageResultBean;
-        import com.tt.springbootorder.pojo.Provider;
-        import com.tt.springbootorder.pojo.Role;
-        import com.tt.springbootorder.pojo.SpringJSONResult;
-        import com.tt.springbootorder.pojo.User;
-        import com.tt.springbootorder.service.RoleService;
-        import com.tt.springbootorder.service.UserService;
-        import org.springframework.beans.factory.annotation.Autowired;
-        import org.springframework.stereotype.Controller;
-        import org.springframework.ui.Model;
-        import org.springframework.web.bind.annotation.*;
-
-        import javax.servlet.http.HttpServletRequest;
-        import java.text.SimpleDateFormat;
-        import java.util.List;
+import com.github.pagehelper.PageHelper;
+import com.tt.springbootorder.config.page.PageResultBean;
+import com.tt.springbootorder.pojo.Provider;
+import com.tt.springbootorder.pojo.Role;
+import com.tt.springbootorder.pojo.SpringJSONResult;
+import com.tt.springbootorder.pojo.User;
+import com.tt.springbootorder.service.RoleService;
+import com.tt.springbootorder.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.*;
+import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.List;
 
 /**
  * @ClassName: com.tt.springbootorder.controller.UserController
@@ -258,7 +257,7 @@ public class UserController {
     /**
      * @ Description: 通过用户名称或用户角色查询到用户的信息
      * @params:  * @Param: username
-     * @Param: userrole
+     * @Param: userrole
      * @return:com.tt.springbootorder.config.page.PageResultBean<com.tt.springbootorder.pojo.User>
      **/
     @RequestMapping(value = "/findUserByUserNameOrUserRole", method = RequestMethod.POST)
