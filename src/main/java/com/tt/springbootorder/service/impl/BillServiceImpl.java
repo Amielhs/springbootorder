@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 /**
  * @ClassName: com.tt.springbootorder.service.impl.BillServiceImpl
  * @Description:  订单业务接口实现类
@@ -26,4 +27,5 @@ public class BillServiceImpl implements BillService{
     public List<Bill> findAll() {
         return billMapper.selectAll();
     }
+
 }

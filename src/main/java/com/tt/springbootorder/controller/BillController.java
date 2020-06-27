@@ -29,6 +29,7 @@ public class BillController {
 
     @Autowired
     private ProviderService providerService;
+
     @RequestMapping("/")
     public String index(Model model) {
         List<Bill>  billList= billService.findAll();
